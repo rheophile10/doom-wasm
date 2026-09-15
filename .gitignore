@@ -19,3 +19,7 @@ stamp-h1
 clean
 src/doom1.wad
 .githelp
+config.hin~
+configure~
+dist/
+wads/

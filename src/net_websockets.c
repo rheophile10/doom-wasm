@@ -4,6 +4,9 @@
 // DESCRIPTION:
 //      Websockets network module for Chocolate Doom Wasm
 
+// doomtype.h first: newer Emscripten headers include <stdbool.h>, which would otherwise make
+// `boolean` a 1-byte bool in this file while it is a 4-byte enum everywhere else.
+#include "doomtype.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -116,6 +116,13 @@ typedef enum
 
 #endif
 
+#ifndef __cplusplus
+// Every translation unit must agree on the size of `boolean`, or arrays of it shared between
+// files (playeringame[], the network tic sets) are read at the wrong width. That happens when
+// <stdbool.h> — which newer Emscripten headers include — is seen before this header.
+_Static_assert(sizeof(boolean) == sizeof(int), "include doomtype.h before any header that includes <stdbool.h>");
+#endif
+
 typedef uint8_t byte;
 typedef uint8_t pixel_t;
 typedef int16_t dpixel_t;
